@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:ignore="HardcodedText">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -20,7 +21,13 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="48dp" />
+        android:layout_height="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0dp elevation"
+        style="@style/Widget.Demo.Header" />
 
     <com.alorma.demodaarkview.PinKeyboardView
         android:id="@+id/pin0"
@@ -29,36 +36,54 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="48dp" />
+        android:layout_height="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2dp elevation"
+        style="@style/Widget.Demo.Header"/>
 
     <com.alorma.demodaarkview.PinKeyboardView
         android:id="@+id/pin2"
+        style="@style/Widget.Demo.Pin.Secondary"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        style="@style/Widget.Demo.Pin.Secondary"
         android:elevation="2dp" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="48dp" />
+        android:layout_height="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="8dp elevation"
+        style="@style/Widget.Demo.Header" />
 
     <com.alorma.demodaarkview.PinKeyboardView
-        android:id="@+id/pin4"
+        android:id="@+id/pin8"
+        style="@style/Widget.Demo.Pin.OnSurface"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        style="@style/Widget.Demo.Pin.OnSurface"
         android:elevation="4dp" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="48dp" />
+        android:layout_height="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="16dp elevation"
+        style="@style/Widget.Demo.Header" />
 
     <com.alorma.demodaarkview.PinKeyboardView
-        android:id="@+id/pin8"
+        android:id="@+id/pin16"
+        style="@style/Widget.Demo.Pin.Error"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        style="@style/Widget.Demo.Pin.Error"
-        android:elevation="8dp" />
+        android:elevation="16dp" />
 
 
 </LinearLayout>

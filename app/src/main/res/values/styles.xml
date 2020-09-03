@@ -6,7 +6,9 @@
         <item name="colorSecondary">@color/colorSecondary</item>
         <item name="android:statusBarColor">?colorPrimarySurface</item>
         <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar.PrimarySurface</item>
-        <item name="appBarLayoutStyle">@style/Widget.MaterialComponents.AppBarLayout.PrimarySurface</item>
+        <item name="appBarLayoutStyle">
+            @style/Widget.MaterialComponents.AppBarLayout.PrimarySurface
+        </item>
         <item name="pinKeyboardStyle">@style/Widget.Demo.Pin</item>
     </style>
 
@@ -25,6 +27,14 @@
 
     <style name="Widget.Demo.Pin.OnSurface">
         <item name="strokeColor">?colorOnSurface</item>
+    </style>
+
+    <style name="Widget.Demo.Header" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">?textAppearanceCaption</item>
+        <item name="android:paddingStart">32dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">12dp</item>
     </style>
 
 </resources>
