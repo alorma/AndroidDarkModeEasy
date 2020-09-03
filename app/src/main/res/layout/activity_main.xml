@@ -35,6 +35,7 @@
         android:id="@+id/pin2"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        style="@style/Widget.Demo.Pin.Secondary"
         android:elevation="2dp" />
 
     <Space
@@ -45,6 +46,7 @@
         android:id="@+id/pin4"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        style="@style/Widget.Demo.Pin.OnSurface"
         android:elevation="4dp" />
 
     <Space
@@ -55,6 +57,7 @@
         android:id="@+id/pin8"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        style="@style/Widget.Demo.Pin.Error"
         android:elevation="8dp" />
 
 

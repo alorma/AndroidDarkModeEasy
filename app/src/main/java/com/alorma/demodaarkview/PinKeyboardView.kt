@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
+import androidx.core.content.withStyledAttributes
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,22 +22,56 @@ import kotlinx.android.synthetic.main.pin_keyboard.view.*
 class PinKeyboardView @JvmOverloads constructor(
     context: Context,
     attributeSet: AttributeSet? = null,
-    @AttrRes defStyleAttr: Int = 0,
-    @StyleRes defStyleRes: Int = 0
+    @AttrRes defStyleAttr: Int = R.attr.pinKeyboardStyle,
+    @StyleRes defStyleRes: Int = R.style.Widget_Demo_Pin
 ) : LinearLayout(context, attributeSet, defStyleAttr, defStyleRes) {
+
+    private var strokeWidth: Float = 0f
+    private var strokeColor: ColorStateList = ColorStateList.valueOf(
+        MaterialColors.getColor(this, R.attr.colorPrimary)
+    )
 
     init {
         inflate(context, R.layout.pin_keyboard, this)
 
+        initAttributes(context, attributeSet, defStyleAttr, defStyleRes)
+        initBackground(context)
+
+        setupNumber(context)
+    }
+
+    private fun initAttributes(
+        context: Context,
+        attributeSet: AttributeSet?,
+        defStyleAttr: Int,
+        defStyleRes: Int
+    ) {
+
+        context.withStyledAttributes(
+            attributeSet,
+            R.styleable.PinKeyboardView,
+            defStyleAttr,
+            defStyleRes
+        ) {
+            strokeColor = getColorStateList(R.styleable.PinKeyboardView_strokeColor) ?: strokeColor
+            strokeWidth = getDimension(R.styleable.PinKeyboardView_strokeWidth, 0f)
+        }
+    }
+
+    private fun initBackground(context: Context) {
         val materialDrawable = MaterialShapeDrawable()
+
         materialDrawable.initializeElevationOverlay(context)
+        materialDrawable.elevation = ViewCompat.getElevation(this)
+
         materialDrawable.fillColor = ColorStateList.valueOf(
             MaterialColors.getColor(this, R.attr.colorSurface)
         )
-        materialDrawable.elevation = ViewCompat.getElevation(this)
-        ViewCompat.setBackground(this, materialDrawable)
 
-        setupNumber(context)
+        materialDrawable.strokeWidth = strokeWidth
+        materialDrawable.strokeColor = strokeColor
+
+        ViewCompat.setBackground(this, materialDrawable)
     }
 
     private fun setupNumber(context: Context) {
