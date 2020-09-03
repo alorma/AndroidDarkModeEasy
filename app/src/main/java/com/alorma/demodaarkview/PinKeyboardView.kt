@@ -3,6 +3,7 @@ package com.alorma.demodaarkview
 import android.content.Context
 import android.content.res.ColorStateList
 import android.util.AttributeSet
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -102,6 +103,8 @@ class PinKeyboardView @JvmOverloads constructor(
         pinKeyboard.layoutManager = GridLayoutManager(context, 5)
         val items = (0..9).toList().shuffled()
         pinKeyboard.adapter = NumbersAdapter(items)
+        val decoration = GridDividerDecoration(strokeWidth, strokeColor, 5)
+        pinKeyboard.addItemDecoration(decoration)
     }
 
     override fun setElevation(elevation: Float) {
@@ -135,7 +138,10 @@ class NumbersAdapter(private val items: List<Int>) :
     class NumberHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         fun bind(number: Int) {
-            itemView.findViewById<TextView>(android.R.id.text1).text = number.toString()
+            with(itemView.findViewById<TextView>(android.R.id.text1)) {
+                gravity = Gravity.CENTER
+                itemView.findViewById<TextView>(android.R.id.text1).text = number.toString()
+            }
         }
     }
 
