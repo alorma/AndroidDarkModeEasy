@@ -12,9 +12,19 @@
         <item name="pinKeyboardStyle">@style/Widget.Demo.Pin</item>
     </style>
 
+    <style name="ShapeAppearance.Demo.Pin" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">10dp</item>
+    </style>
+
+    <style name="ShapeAppearance.Demo.Pin.Round" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+    </style>
+
     <style name="Widget.Demo.Pin" parent="android:Widget">
         <item name="strokeWidth">1dp</item>
         <item name="strokeColor">?colorPrimary</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Demo.Pin</item>
     </style>
 
     <style name="Widget.Demo.Pin.Secondary">
@@ -23,6 +33,7 @@
 
     <style name="Widget.Demo.Pin.Error">
         <item name="strokeColor">?colorError</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.Demo.Pin.Round</item>
     </style>
 
     <style name="Widget.Demo.Pin.OnSurface">

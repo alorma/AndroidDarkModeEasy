@@ -6,6 +6,9 @@
         <attr name="strokeWidth" format="dimension" />
         <attr name="strokeColor" format="color" />
 
+        <attr name="shapeAppearance" format="reference"/>
+        <attr name="shapeAppearanceOverlay" format="reference"/>
+
     </declare-styleable>
 
     <attr name="pinKeyboardStyle" format="reference"/>
