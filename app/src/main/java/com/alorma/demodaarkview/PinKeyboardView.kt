@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.color.MaterialColors
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.MaterialShapeUtils
+import com.google.android.material.shape.ShapeAppearanceModel
 import kotlinx.android.synthetic.main.pin_keyboard.view.*
 
 class PinKeyboardView @JvmOverloads constructor(
@@ -34,8 +35,19 @@ class PinKeyboardView @JvmOverloads constructor(
     init {
         inflate(context, R.layout.pin_keyboard, this)
 
-        initAttributes(context, attributeSet, defStyleAttr, defStyleRes)
-        initBackground(context)
+        initAttributes(
+            context,
+            attributeSet,
+            defStyleAttr,
+            defStyleRes
+        )
+
+        initBackground(
+            context,
+            attributeSet,
+            defStyleAttr,
+            defStyleRes
+        )
 
         setupNumber(context)
     }
@@ -58,8 +70,20 @@ class PinKeyboardView @JvmOverloads constructor(
         }
     }
 
-    private fun initBackground(context: Context) {
-        val materialDrawable = MaterialShapeDrawable()
+    private fun initBackground(
+        context: Context,
+        attributeSet: AttributeSet?,
+        defStyleAttr: Int,
+        defStyleRes: Int
+    ) {
+        val shapeAppearanceModel = ShapeAppearanceModel.builder(
+            context,
+            attributeSet,
+            defStyleAttr,
+            defStyleRes
+        ).build()
+
+        val materialDrawable = MaterialShapeDrawable(shapeAppearanceModel)
 
         materialDrawable.initializeElevationOverlay(context)
         materialDrawable.elevation = ViewCompat.getElevation(this)
