@@ -1,6 +1,7 @@
 package com.alorma.demodaarkview
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +10,11 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.color.MaterialColors
+import com.google.android.material.shape.MaterialShapeDrawable
 import kotlinx.android.synthetic.main.pin_keyboard.view.*
 
 class PinKeyboardView @JvmOverloads constructor(
@@ -23,7 +26,14 @@ class PinKeyboardView @JvmOverloads constructor(
 
     init {
         inflate(context, R.layout.pin_keyboard, this)
-        setBackgroundColor(MaterialColors.getColor(this, R.attr.colorSurface))
+
+        val materialDrawable = MaterialShapeDrawable()
+        materialDrawable.initializeElevationOverlay(context)
+        materialDrawable.fillColor = ColorStateList.valueOf(
+            MaterialColors.getColor(this, R.attr.colorSurface)
+        )
+        materialDrawable.elevation = ViewCompat.getElevation(this)
+        ViewCompat.setBackground(this, materialDrawable)
 
         setupNumber(context)
     }
