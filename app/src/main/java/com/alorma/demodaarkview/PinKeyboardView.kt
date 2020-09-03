@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.color.MaterialColors
 import com.google.android.material.shape.MaterialShapeDrawable
+import com.google.android.material.shape.MaterialShapeUtils
 import kotlinx.android.synthetic.main.pin_keyboard.view.*
 
 class PinKeyboardView @JvmOverloads constructor(
@@ -42,6 +43,17 @@ class PinKeyboardView @JvmOverloads constructor(
         pinKeyboard.layoutManager = GridLayoutManager(context, 5)
         val items = (0..9).toList().shuffled()
         pinKeyboard.adapter = NumbersAdapter(items)
+    }
+
+    override fun setElevation(elevation: Float) {
+        super.setElevation(elevation)
+        MaterialShapeUtils.setElevation(this, elevation)
+    }
+
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+
+        MaterialShapeUtils.setParentAbsoluteElevation(this)
     }
 
 }
