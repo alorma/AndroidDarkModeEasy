@@ -24,13 +24,14 @@
         android:layout_height="16dp" />
 
     <TextView
+        style="@style/Widget.Demo.Header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="0dp elevation"
-        style="@style/Widget.Demo.Header" />
+        android:text="0dp elevation" />
 
     <com.alorma.demodaarkview.PinKeyboardView
         android:id="@+id/pin0"
+        style="@style/Widget.Demo.Pin.Primary"
         android:layout_width="300dp"
         android:layout_height="wrap_content" />
 
@@ -39,10 +40,10 @@
         android:layout_height="16dp" />
 
     <TextView
+        style="@style/Widget.Demo.Header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="2dp elevation"
-        style="@style/Widget.Demo.Header"/>
+        android:text="2dp elevation" />
 
     <com.alorma.demodaarkview.PinKeyboardView
         android:id="@+id/pin2"
@@ -56,10 +57,10 @@
         android:layout_height="16dp" />
 
     <TextView
+        style="@style/Widget.Demo.Header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="8dp elevation"
-        style="@style/Widget.Demo.Header" />
+        android:text="8dp elevation" />
 
     <com.alorma.demodaarkview.PinKeyboardView
         android:id="@+id/pin8"
@@ -73,10 +74,10 @@
         android:layout_height="16dp" />
 
     <TextView
+        style="@style/Widget.Demo.Header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="16dp elevation"
-        style="@style/Widget.Demo.Header" />
+        android:text="16dp elevation" />
 
     <com.alorma.demodaarkview.PinKeyboardView
         android:id="@+id/pin16"
